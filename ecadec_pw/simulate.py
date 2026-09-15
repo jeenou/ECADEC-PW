@@ -53,21 +53,12 @@ if ldf is None:
 
 print("Load-flow command:", ldf)
 
-# Find the load
-loads = app.GetCalcRelevantObjects("LV_LD_342.ElmLod")
+# List every load in the active project so the correct name can be identified
+#all_loads = app.GetCalcRelevantObjects("ElmLod")
+#print(f"Found {len(all_loads)} loads:")
+#for l in all_loads:
+#    print(" -", l.loc_name)
 
-if not loads:
-    raise RuntimeError("Load 'LV_LD_342.ElmLod' not found")
-
-load = loads[0]
-
-print("Load:", load)
-
-
-# Read the input active power
-p_original = load.plini
-
-print("Original active power:", p_original, "MW")
 
 # -----------------------------------------------------------------------------
 # PTDF Table
@@ -116,12 +107,9 @@ result_objects = study_case.GetContents(
 )
 
 if not result_objects:
-    raise RuntimeError(
-        "Result object 'PTDF Results.ElmRes' was not found. "
-        "Assign this result object to the ComVstab command."
-    )
-
-ptdf_result = result_objects[0]
+    ptdf_result = study_case.CreateObject("ElmRes", "PTDF Results")
+else:
+    ptdf_result = result_objects[0]
 
 print("PTDF result object:", ptdf_result)
 

@@ -53,7 +53,7 @@ python -m pip install -e .
 ```powershell
 python -m ecadec_pw.simulate
 # or, after editable install:
-simulate-new
+simulate
 ```
 
 5) Run tests
