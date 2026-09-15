@@ -94,6 +94,14 @@ ptdf_command = ptdf_commands
 
 print("PTDF command:", ptdf_command)
 
+# diagnostic: dump current attribute values to find what's unconfigured
+print("PTDF command attributes:")
+for attr in ptdf_command.GetAttributeNames():
+    try:
+        print(f"  {attr} = {ptdf_command.GetAttribute(attr)}")
+    except Exception:
+        pass
+
 
 # -----------------------------------------------------------------------------
 # Find the PTDF result object
