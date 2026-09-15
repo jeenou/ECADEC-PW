@@ -5,7 +5,7 @@ Minimal PowerShell commands to set up, check PowerFactory, create a matching vir
 Start by cloning the repository and entering its folder:
 
 ```powershell
-git clone <your-repo-url>
+git clone https://github.com/jeenou/ECADEC-PW.git
 Set-Location ECADEC-PW
 ```
 
