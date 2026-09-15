@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecadec-pw"
+version = "0.1.0"
+description = "EC ADEC PowerFactory PTDF export utilities"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.5",
+]
+
+[project.scripts]
+simulate-new = "ecadec_pw:main"
